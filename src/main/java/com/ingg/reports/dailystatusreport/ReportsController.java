@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Comparator;
 
 @Controller
 public class ReportsController {
@@ -23,6 +24,12 @@ public class ReportsController {
     public String greeting( Model model) {
         File folder = new File(location);
         File[] listOfFiles = folder.listFiles();
+        Arrays.sort(listOfFiles, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                return -o1.getName().compareTo(o2.getName());
+            }
+        });
         logger.info("files: {}", listOfFiles);
         model.addAttribute("name", "belley");
         model.addAttribute("listOfFiles", listOfFiles);

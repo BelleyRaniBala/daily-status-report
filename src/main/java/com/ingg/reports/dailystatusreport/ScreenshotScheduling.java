@@ -17,9 +17,10 @@ public class ScreenshotScheduling {
     @Autowired
     ScreenshotMaker screenshotMaker;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 50000)
     public void reportCurrentTime() {
         logger.info("The time is now {}", dateFormat.format(new Date()));
+        screenshotMaker.generateScreenshot();
     }
 
     @Scheduled(cron="0 30 17 * * *")

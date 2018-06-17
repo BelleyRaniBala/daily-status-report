@@ -21,7 +21,7 @@ import java.util.Date;
 public class ScreenshotMaker implements CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(ScreenshotMaker.class);
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 
 
     @Value("${screenshots.location}")
