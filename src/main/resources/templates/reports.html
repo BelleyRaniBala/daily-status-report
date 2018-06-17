@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Reports:</h1>
+<ul>
+    <li th:each="file : ${listOfFiles}">
+        <a th:href="@{'/screenshots/' + ${file.getName()}}" >
+            <p th:text="${file.getName()}" />
+        </a>
+    </li>
+</ul>
+   </p>
+</body>
+</html>
