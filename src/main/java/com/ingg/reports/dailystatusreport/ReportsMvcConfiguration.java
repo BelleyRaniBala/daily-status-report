@@ -10,14 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class ReportsMvcConfiguration implements WebMvcConfigurer {
 
-    Logger logger = LoggerFactory.getLogger(ReportsMvcConfiguration.class);
-
     @Value("${screenshots.location}")
     private String location;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        logger.info("AAAAAAAAa {}",location);
         registry.addResourceHandler("/screenshots/**")
                 .addResourceLocations("file:" + location);
     }
