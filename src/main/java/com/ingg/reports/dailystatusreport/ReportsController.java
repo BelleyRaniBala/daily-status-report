@@ -24,14 +24,8 @@ public class ReportsController {
     public String greeting( Model model) {
         File folder = new File(location);
         File[] listOfFiles = folder.listFiles();
-        Arrays.sort(listOfFiles, new Comparator<File>() {
-            @Override
-            public int compare(File o1, File o2) {
-                return -o1.getName().compareTo(o2.getName());
-            }
-        });
+        Arrays.sort(listOfFiles, (o1, o2) -> -o1.getName().compareTo(o2.getName()));
         logger.info("files: {}", listOfFiles);
-        model.addAttribute("name", "belley");
         model.addAttribute("listOfFiles", listOfFiles);
         return "reports";
     }
